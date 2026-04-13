@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de privacidad · Seize Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=IM+Fell+English:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="files/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="files/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="files/favicon-180.png">
+<link rel="icon" type="image/x-icon" href="files/favicon.ico">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --dark:   #2A1F0E;
+  --rust:   #8B4A20;
+  --amber:  #C07A40;
+  --kraft:  #D4B896;
+  --sepia:  #C8B89A;
+  --cream:  #F5EFE0;
+  --cream2: #EDE5D0;
+  --light:  #FAF6ED;
+  --mid:    #9A8A70;
+  --body:   #4A3A28;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--light);
+  color: var(--body);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 52px;
+  border-bottom: 1px solid rgba(200,184,154,0.15);
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.nav-sub {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ── CONTENIDO ── */
+.page-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 48px 96px;
+}
+
+.page-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.page-updated {
+  font-size: 12px;
+  color: var(--mid);
+  letter-spacing: 0.06em;
+  margin-bottom: 48px;
+  display: block;
+}
+
+.page-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0;
+}
+.page-divider-line { flex: 1; height: 1px; background: var(--sepia); }
+.page-divider-ornament { font-family: 'IM Fell English', serif; font-size: 12px; color: var(--amber); }
+
+.page-intro {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--body);
+  line-height: 1.9;
+  margin-bottom: 48px;
+}
+
+.policy-section {
+  margin-bottom: 36px;
+}
+
+.policy-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.policy-section p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--body);
+  line-height: 1.9;
+}
+
+.policy-section a {
+  color: var(--rust);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139,74,32,0.3);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.policy-section a:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  border-top: 1px solid rgba(200,184,154,0.1);
+  padding: 48px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.footer-studio {
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.footer-diam {
+  width: 5px; height: 5px;
+  background: var(--rust);
+  transform: rotate(45deg);
+  margin: 0 auto 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: var(--cream); }
+
+.footer-sep {
+  width: 3px; height: 3px;
+  background: var(--rust);
+  transform: rotate(45deg);
+}
+
+.footer-copy {
+  font-size: 9px;
+  color: rgba(154,138,112,0.35);
+  margin-top: 28px;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 640px) {
+  nav { padding: 0 24px; }
+  .page-wrap { padding: 96px 24px 64px; }
+  footer { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="seize_landing.html" class="nav-brand">Seize</a>
+  <div class="nav-sub">Studio</div>
+</nav>
+
+<!-- CONTENIDO -->
+<main class="page-wrap">
+  <span class="page-eyebrow">Legal</span>
+  <h1 class="page-title">Política de privacidad</h1>
+  <span class="page-updated">Última actualización: abril de 2025</span>
+
+  <p class="page-intro">En Seize Studio nos tomamos en serio la privacidad de las personas que interactúan con nosotros. Esta política explica qué datos recogemos, para qué los usamos y cuáles son tus derechos.</p>
+
+  <div class="page-divider">
+    <div class="page-divider-line"></div>
+    <span class="page-divider-ornament">— ✦ —</span>
+    <div class="page-divider-line"></div>
+  </div>
+
+  <div class="policy-section">
+    <h2>1. Responsable del tratamiento</h2>
+    <p>Nombre comercial: Seize Studio<br>
+    Correo de contacto: <a href="mailto:info@seizestudio.com">info@seizestudio.com</a></p>
+  </div>
+
+  <div class="policy-section">
+    <h2>2. Qué datos recogemos</h2>
+    <p>Únicamente recogemos tu dirección de correo electrónico, que nos proporcionas voluntariamente a través del formulario de nuestra web cuando quieres recibir información sobre nuestros eventos.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>3. Para qué usamos tus datos</h2>
+    <p>Usamos tu correo exclusivamente para informarte sobre los eventos de Seize Studio: fechas, precios y cualquier detalle relevante. No lo usaremos para ningún otro fin sin tu consentimiento.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>4. Base legal del tratamiento</h2>
+    <p>El tratamiento de tus datos se basa en el consentimiento que nos das al rellenar el formulario y hacer click en el botón de envío.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>5. Dónde guardamos tus datos</h2>
+    <p>Los correos se almacenan en Google Sheets, un servicio de Google LLC. Google actúa como encargado del tratamiento y ofrece garantías de cumplimiento con el RGPD a través de sus cláusulas contractuales estándar.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>6. Durante cuánto tiempo</h2>
+    <p>Conservamos tu correo hasta que nos pidas que lo eliminemos, o hasta que el evento para el que te apuntaste haya concluido y no exista una relación activa contigo.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>7. Con quién compartimos tus datos</h2>
+    <p>No vendemos ni cedemos tus datos a terceros. El único servicio externo que interviene en el almacenamiento es Google Sheets, mencionado en el punto anterior.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>8. Tus derechos</h2>
+    <p>Como usuario tienes derecho a acceder a tus datos, rectificarlos, solicitar su supresión, oponerte a su tratamiento y solicitar su portabilidad. Para ejercer cualquiera de estos derechos, escríbenos a <a href="mailto:info@seizestudio.com">info@seizestudio.com</a> y te respondemos en un plazo máximo de 30 días.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>9. Cambios en esta política</h2>
+    <p>Si en algún momento modificamos esta política, actualizaremos la fecha de la parte superior de esta página. Te recomendamos revisarla de vez en cuando.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>10. Contacto</h2>
+    <p>Si tienes cualquier duda sobre cómo tratamos tus datos, escríbenos a <a href="mailto:info@seizestudio.com">info@seizestudio.com</a>. Estaremos encantados de ayudarte.</p>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Seize</div>
+  <span class="footer-studio">Studio</span>
+  <div class="footer-diam"></div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/seize.estudio/" class="footer-link" target="_blank" rel="noopener">Instagram</a>
+    <div class="footer-sep"></div>
+    <a href="privacidad.html" class="footer-link">Política de privacidad</a>
+  </div>
+  <p class="footer-copy">© 2026 Seize Studio · Cuenca</p>
+</footer>
+
+</body>
+</html>

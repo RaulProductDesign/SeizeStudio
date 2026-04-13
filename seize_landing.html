@@ -468,6 +468,21 @@ nav {
 }
 
 .form-btn:hover { background: var(--kraft); border-color: var(--kraft); }
+.form-btn:disabled { opacity: 0.6; cursor: default; background: var(--amber); border-color: var(--amber); }
+
+@keyframes dot-pulse {
+  0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+  40%            { opacity: 1;   transform: scale(1); }
+}
+.btn-dots { display: inline-flex; gap: 5px; align-items: center; }
+.btn-dots span {
+  width: 5px; height: 5px;
+  background: var(--dark);
+  border-radius: 50%;
+  animation: dot-pulse 1.2s ease-in-out infinite;
+}
+.btn-dots span:nth-child(2) { animation-delay: 0.2s; }
+.btn-dots span:nth-child(3) { animation-delay: 0.4s; }
 
 .form-note {
   font-size: 12px;
@@ -615,8 +630,7 @@ footer {
   <div class="exp-grid">
 
     <div class="exp-card">
-      <div class="exp-img">
-        <span class="exp-img-label">Fotografía</span>
+      <div class="exp-img" style="background-image: url('https://images.unsplash.com/photo-1558996260-4bac67dbd110?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center;">
       </div>
       <div class="exp-body">
         <span class="exp-num">01 · Catas</span>
@@ -626,7 +640,7 @@ footer {
     </div>
 
     <div class="exp-card">
-      <div class="exp-img" style="background-image: url('https://source.unsplash.com/7RYrEvbqFM8/800x600'); background-size: cover; background-position: center;">
+      <div class="exp-img" style="background-image: url('https://images.unsplash.com/photo-1707703598512-8c7a8c6adee1?q=80&w=1673&auto=format&fit=crop'); background-size: cover; background-position: center;">
       </div>
       <div class="exp-body">
         <span class="exp-num">02 · Talleres</span>
@@ -636,8 +650,7 @@ footer {
     </div>
 
     <div class="exp-card">
-      <div class="exp-img">
-        <span class="exp-img-label">Fotografía</span>
+      <div class="exp-img" style="background-image: url('https://images.unsplash.com/photo-1558996338-294a904a1815?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center;">
       </div>
       <div class="exp-body">
         <span class="exp-num">03 · Charlas</span>
@@ -685,9 +698,9 @@ footer {
   <span class="footer-studio">Studio</span>
   <div class="footer-diam"></div>
   <div class="footer-links">
-    <a href="https://instagram.com" class="footer-link">Instagram</a>
+    <a href="https://www.instagram.com/seize.estudio/" class="footer-link" target="_blank" rel="noopener">Instagram</a>
     <div class="footer-sep"></div>
-    <a href="#" class="footer-link">Política de privacidad</a>
+    <a href="privacidad.html" class="footer-link">Política de privacidad</a>
   </div>
   <p class="footer-copy">© 2026 Seize Studio · Cuenca</p>
 </footer>
@@ -695,7 +708,8 @@ footer {
 <script>
 async function handleSubmit() {
   const input = document.getElementById('email-input');
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const btn   = document.querySelector('.form-btn');
+  const re    = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!re.test(input.value.trim())) {
     input.style.borderColor = 'rgba(180,80,80,0.6)';
@@ -704,6 +718,10 @@ async function handleSubmit() {
     return;
   }
 
+  // Estado de carga
+  btn.disabled = true;
+  btn.innerHTML = '<span class="btn-dots"><span></span><span></span><span></span></span>';
+
   try {
     await fetch('https://script.google.com/macros/s/AKfycbw1Zmp_3w3cQ4QQZuvQdS0UyJ5gfHDpecgZdH-Qqd88NFovMms6Gm9LFvQD_1xjA4-yAA/exec', {
       method: 'POST',
@@ -711,12 +729,10 @@ async function handleSubmit() {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: 'email=' + encodeURIComponent(input.value.trim())
     });
+  } catch (e) { /* no-cors siempre resuelve, catch por si acaso */ }
 
-    document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-  } catch (e) {
-    alert('Algo ha ido mal, inténtalo de nuevo.');
-  }
+  document.getElementById('form-wrap').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
 }
 
 document.getElementById('email-input').addEventListener('keydown', function(e) {

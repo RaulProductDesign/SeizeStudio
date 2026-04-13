@@ -37,6 +37,10 @@ La landing está en `seize_landing.html`. El repositorio está en https://github
 - Max-width de secciones subido a `1200px` (antes `860px`)
 - Base font-size subida a `17px`; todos los textos escalados proporcionalmente
 - El mensaje de éxito del formulario usa DM Sans 300 (antes IM Fell English italic — poca legibilidad)
+- Las tres cards de experiencias tienen imagen real de Unsplash (CDN directo, `background-size: cover`)
+- Instagram enlazado: `https://www.instagram.com/seize.estudio/`
+- Página de privacidad creada en `privacidad.html`, enlazada desde el footer de ambas páginas
+- Animación de carga en el botón del formulario: tres puntos con `dot-pulse`, el mensaje de confirmación aparece cuando el fetch resuelve
 
 ### Copy clave
 
@@ -138,8 +142,5 @@ En caso de éxito oculta `#form-wrap` y muestra `#successMsg`. En error muestra 
 ## Pendientes
 
 - [ ] Foto real del espacio para el hero (sustituir `.hero-img-placeholder`)
-- [ ] Fotografías para las cards de Catas y Charlas (`.exp-img`)
-- [ ] URL de Instagram para el footer
 - [ ] Hosting (GitHub Pages o Netlify recomendado — gratuito)
-- [ ] Política de privacidad (página o modal mínimo)
 - [ ] Animaciones de entrada (scroll reveal en secciones, fade-in hero)
