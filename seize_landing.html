@@ -484,11 +484,12 @@ nav {
 }
 
 .form-success-text {
-  font-family: 'IM Fell English', serif;
-  font-style: italic;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
   font-size: 17px;
   color: var(--cream);
   line-height: 1.6;
+  letter-spacing: 0.02em;
 }
 
 /* ── FOOTER ── */
@@ -672,7 +673,7 @@ footer {
       <p class="form-note">Al enviar tu correo aceptas que Seize lo use para informarte sobre este evento. Puedes darte de baja en cualquier momento escribiéndonos directamente.</p>
     </div>
 
-    <div class="form-success" id="form-success">
+    <div class="form-success" id="successMsg">
       <p class="form-success-text">¡Apuntado! Te avisamos cuando tengamos todos los detalles.</p>
     </div>
   </div>
@@ -692,7 +693,7 @@ footer {
 </footer>
 
 <script>
-function handleSubmit() {
+async function handleSubmit() {
   const input = document.getElementById('email-input');
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -703,11 +704,19 @@ function handleSubmit() {
     return;
   }
 
-  // Aquí irá el POST al webhook de Make
-  // fetch('TU_WEBHOOK_URL', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: input.value.trim()}) })
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbw1Zmp_3w3cQ4QQZuvQdS0UyJ5gfHDpecgZdH-Qqd88NFovMms6Gm9LFvQD_1xjA4-yAA/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'email=' + encodeURIComponent(input.value.trim())
+    });
 
-  document.getElementById('form-wrap').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  } catch (e) {
+    alert('Algo ha ido mal, inténtalo de nuevo.');
+  }
 }
 
 document.getElementById('email-input').addEventListener('keydown', function(e) {
