@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seize Studio · Café &amp; Experiencias · Cuenca</title>
+<link rel="icon" type="image/svg+xml" href="files/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="files/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="files/favicon-180.png">
+<link rel="icon" type="image/x-icon" href="files/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=IM+Fell+English:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --dark:    #2A1F0E;
+  --rust:    #8B4A20;
+  --amber:   #C07A40;
+  --kraft:   #D4B896;
+  --sepia:   #C8B89A;
+  --cream:   #F5EFE0;
+  --cream2:  #EDE5D0;
+  --light:   #FAF6ED;
+  --mid:     #9A8A70;
+  --body:    #4A3A28;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 52px;
+  border-bottom: 1px solid rgba(200,184,154,0.15);
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+}
+
+.nav-sub {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--dark);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 120px 48px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200,184,154,0.03) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,184,154,0.03) 40px);
+  pointer-events: none;
+}
+
+/* Placeholder imagen de fondo */
+.hero-img-placeholder {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom, rgba(42,31,14,0.85) 0%, rgba(42,31,14,0.6) 40%, rgba(42,31,14,0.85) 100%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(139,74,32,0.08) 0px,
+      rgba(139,74,32,0.08) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img-placeholder::after {
+  content: 'Fotografía del espacio';
+  position: absolute;
+  bottom: 24px;
+  right: 32px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(154,138,112,0.4);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 32px;
+}
+
+.hero-ornament {
+  font-family: 'IM Fell English', serif;
+  font-size: 16px;
+  color: var(--amber);
+  letter-spacing: 0.5em;
+  margin: 32px 0;
+}
+
+.hero-title-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-align: center;
+}
+
+.hero-rule-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+}
+.hero-rule { flex: 1; height: 1px; background: var(--rust); }
+.hero-diamond { width: 5px; height: 5px; background: var(--rust); transform: rotate(45deg); flex-shrink: 0; }
+
+.hero-studio {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 0;
+}
+
+.hero-logo-block {
+  margin-bottom: 40px;
+}
+
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(48px, 7vw, 80px);
+  color: var(--cream);
+  line-height: 1.15;
+  margin-bottom: 48px;
+  opacity: 0.9;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--amber);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 36px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.hero-cta:hover { background: var(--kraft); }
+.hero-cta:active { transform: scale(0.99); }
+
+.hero-cta-arrow {
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+
+.hero-cta:hover .hero-cta-arrow { transform: translateY(3px); }
+
+/* ── SECCIÓN COMÚN ── */
+.section {
+  padding: 96px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--sepia);
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--rust);
+}
+
+.section-body {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--body);
+  line-height: 1.9;
+  max-width: 620px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0;
+}
+.divider-line { flex: 1; height: 1px; background: var(--sepia); }
+.divider-ornament { font-size: 10px; color: var(--amber); font-family: 'IM Fell English', serif; }
+
+/* ── QUÉ ES ── */
+.quees-centered {
+  margin-top: 56px;
+  max-width: 700px;
+}
+
+.quees-body {
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--body);
+  line-height: 2;
+}
+
+.quees-rule-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0;
+  width: 160px;
+}
+.quees-rule { flex: 1; height: 1px; background: var(--sepia); }
+.quees-diamond { width: 5px; height: 5px; background: var(--rust); transform: rotate(45deg); flex-shrink: 0; }
+
+/* ── EXPERIENCIAS ── */
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.exp-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--cream2);
+  border: 1px solid var(--sepia);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 10px 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(139,74,32,0.05) 0px,
+      rgba(139,74,32,0.05) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+}
+
+.exp-img-label {
+  position: relative;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(74,58,40,0.35);
+}
+
+.exp-body {
+  padding: 20px 0 0;
+  border-top: 1px solid var(--sepia);
+  margin-top: 0;
+}
+
+.exp-num {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.exp-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.exp-desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--body);
+  line-height: 1.9;
+}
+
+/* ── FORMULARIO ── */
+.form-section {
+  background: var(--dark);
+  padding: 96px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200,184,154,0.03) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,184,154,0.03) 40px);
+  pointer-events: none;
+}
+
+.form-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-ornament {
+  font-family: 'IM Fell English', serif;
+  font-size: 16px;
+  color: var(--amber);
+  letter-spacing: 0.4em;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.form-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.form-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+.form-row {
+  display: flex;
+  gap: 0;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.form-input {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(200,184,154,0.25);
+  border-right: none;
+  padding: 16px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--cream);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.form-input::placeholder { color: rgba(154,138,112,0.6); }
+.form-input:focus {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(192,122,64,0.5);
+}
+
+.form-btn {
+  background: var(--amber);
+  border: 1px solid var(--amber);
+  padding: 16px 28px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dark);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.form-btn:hover { background: var(--kraft); border-color: var(--kraft); }
+
+.form-note {
+  font-size: 12px;
+  color: rgba(154,138,112,0.5);
+  margin-top: 16px;
+  letter-spacing: 0.04em;
+}
+
+.form-success {
+  display: none;
+  padding: 20px;
+  border: 1px solid rgba(192,122,64,0.3);
+  background: rgba(192,122,64,0.08);
+}
+
+.form-success-text {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--cream);
+  line-height: 1.6;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  border-top: 1px solid rgba(200,184,154,0.1);
+  padding: 48px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.footer-studio {
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.footer-diam {
+  width: 5px;
+  height: 5px;
+  background: var(--rust);
+  transform: rotate(45deg);
+  margin: 0 auto 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: var(--cream); }
+
+.footer-sep {
+  width: 3px;
+  height: 3px;
+  background: var(--rust);
+  transform: rotate(45deg);
+}
+
+.footer-copy {
+  font-size: 9px;
+  color: rgba(154,138,112,0.35);
+  margin-top: 28px;
+  letter-spacing: 0.06em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .section { padding: 80px 40px; }
+}
+
+@media (max-width: 640px) {
+  nav { padding: 0 24px; }
+  .hero { padding: 100px 24px 80px; }
+  .section { padding: 64px 24px; }
+  .exp-grid { grid-template-columns: 1fr; gap: 40px; }
+  .quees-meta { flex-direction: column; gap: 16px; align-items: flex-start; }
+  .quees-meta-sep { width: 28px; height: 1px; }
+  .formatos-grid { grid-template-columns: 1fr; }
+  .form-section { padding: 64px 24px; }
+  .form-row { flex-direction: column; }
+  .form-input { border-right: 1px solid rgba(200,184,154,0.25); border-bottom: none; }
+  footer { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Seize</div>
+  <div class="nav-sub">Studio</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-img-placeholder"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Seize Studio · Cuenca · 2026</div>
+    <div class="hero-tagline">Curiosos del café,<br><span style="color: var(--amber);">bienvenidos.</span></div>
+    <div class="hero-ornament">— ✦ —</div>
+    <a href="#lista" class="hero-cta">
+      Quiero ser de los primeros
+      <span class="hero-cta-arrow">↓</span>
+    </a>
+  </div>
+</section>
+
+<!-- EL PROYECTO + EXPERIENCIAS -->
+<section class="section" id="concepto">
+  <span class="section-eyebrow">El proyecto</span>
+  <h2 class="section-title">Un espacio para aprender,<br>probar y <em>compartir</em>.</h2>
+
+  <div class="quees-centered">
+    <p class="quees-body">
+      Seize Studio es un espacio en el casco antiguo de Cuenca dedicado a las experiencias en torno al café. Catas guiadas, talleres de preparación y charlas con productores y tostadores.
+    </p>
+  </div>
+
+  <div class="exp-grid">
+
+    <div class="exp-card">
+      <div class="exp-img">
+        <span class="exp-img-label">Fotografía</span>
+      </div>
+      <div class="exp-body">
+        <span class="exp-num">01 · Catas</span>
+        <div class="exp-title">Catas</div>
+        <p class="exp-desc">Nos sentamos, probamos y prestamos atención. Sin prisa, sin jerga. Solo café bueno y ganas de entender qué tiene de especial lo que hay en la taza.</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-img" style="background-image: url('https://source.unsplash.com/7RYrEvbqFM8/800x600'); background-size: cover; background-position: center;">
+      </div>
+      <div class="exp-body">
+        <span class="exp-num">02 · Talleres</span>
+        <div class="exp-title">Talleres</div>
+        <p class="exp-desc">Aprender haciendo. Desde cómo preparar un café en casa hasta entender por qué el tuyo no sabe como el de tu cafetería favorita. Nos manchamos las manos juntos.</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-img">
+        <span class="exp-img-label">Fotografía</span>
+      </div>
+      <div class="exp-body">
+        <span class="exp-num">03 · Charlas</span>
+        <div class="exp-title">Charlas</div>
+        <p class="exp-desc">Invitamos a gente que sabe: tostadores, productores, baristas con historia. Sin ponencias, sin PowerPoints. Una conversación de verdad sobre café con alguien que vive de ello.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="form-section" id="lista">
+  <div class="form-inner">
+    <span class="form-ornament">— ✦ —</span>
+    <p class="form-eyebrow">Primera cata</p>
+    <h2 class="form-title">Apúntate a la<br>lista de espera.</h2>
+    <p class="form-sub">
+      Estamos preparando nuestra primera cata. Cuando tengamos fecha, precio y todos los detalles, serás el primero en saberlo. Deja tu correo y te avisamos.
+    </p>
+
+    <div id="form-wrap">
+      <div class="form-row">
+        <input
+          type="email"
+          class="form-input"
+          id="email-input"
+          placeholder="tu@correo.com"
+          autocomplete="email"
+        />
+        <button class="form-btn" onclick="handleSubmit()">Quiero saber más</button>
+      </div>
+      <p class="form-note">Al enviar tu correo aceptas que Seize lo use para informarte sobre este evento. Puedes darte de baja en cualquier momento escribiéndonos directamente.</p>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <p class="form-success-text">¡Apuntado! Te avisamos cuando tengamos todos los detalles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Seize</div>
+  <span class="footer-studio">Studio</span>
+  <div class="footer-diam"></div>
+  <div class="footer-links">
+    <a href="https://instagram.com" class="footer-link">Instagram</a>
+    <div class="footer-sep"></div>
+    <a href="#" class="footer-link">Política de privacidad</a>
+  </div>
+  <p class="footer-copy">© 2026 Seize Studio · Cuenca</p>
+</footer>
+
+<script>
+function handleSubmit() {
+  const input = document.getElementById('email-input');
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!re.test(input.value.trim())) {
+    input.style.borderColor = 'rgba(180,80,80,0.6)';
+    input.focus();
+    setTimeout(() => { input.style.borderColor = ''; }, 2000);
+    return;
+  }
+
+  // Aquí irá el POST al webhook de Make
+  // fetch('TU_WEBHOOK_URL', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: input.value.trim()}) })
+
+  document.getElementById('form-wrap').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+
+document.getElementById('email-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleSubmit();
+});
+</script>
+
+</body>
+</html>
